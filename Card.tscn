@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://sxi1crk66246"]
+
+[ext_resource type="Script" uid="uid://c6wygxcpld8ow" path="res://card.gd" id="1_dd2wi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bn5ri"]
+size = Vector3(1, 0.1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_k5oav"]
+size = Vector3(1, 0.1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ty0te"]
+size = Vector3(0.8, 0.05, 0.8)
+
+[node name="Card" type="Area3D" unique_id=192495384]
+script = ExtResource("1_dd2wi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=713932838]
+shape = SubResource("BoxShape3D_bn5ri")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=698222696]
+mesh = SubResource("BoxMesh_k5oav")
+
+[node name="FrontMesh" type="MeshInstance3D" parent="." unique_id=49066981]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.06, 0)
+mesh = SubResource("BoxMesh_ty0te")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
